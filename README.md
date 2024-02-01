@@ -61,7 +61,7 @@ I did want to make a J addon that can be installed directly in J, but it seems J
 
 # Usage and limitations
 
-There's no 3d support year, nor the use of any other structs apart from `Vector2` and `Color`.
+There's no 3d support yet, nor the use of any other structs apart from `Vector2` and `Color`.
 To create `Vector2` and `Color` value structs, I'm doing a bit of bit gymnastics that the FFI (on my machine) seems happy with. I'm not sure if it will work on 32-bit platforms correctly.
 
 All functions (including the `Vector2` and `Color` J helper verbs) are under the `rl` Locale.
