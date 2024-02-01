@@ -66,8 +66,9 @@ To create `Vector2` and `Color` value structs, I'm doing a bit of bit gymnastics
 
 All functions (including the `Vector2` and `Color` J helper verbs) are under the `rl` Locale.
 All colors are under Locale `rlcolor`, and enums are under Locale `rlenum`.
-If you want to just load in everything into your current local, just `coinsert 'rl rlcolor rlenum'`
-I was thinking of further breaking the enums out into their own locales, because, eg. The  3D related ones are currently useless in J.
+If you want to just load in everything into your current local, just `coinsert 'rl rlcolor rlenum'`.
+
+I was thinking of further breaking the enums out into their own locales, because, eg. The 3D related ones are currently useless in J.
 
 # More examples
 
