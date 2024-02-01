@@ -46,11 +46,12 @@ CloseWindow ''
 # Dependencies
 
 You will need to have the raylib shared lib already installed.
-Currently it's location is hard-coded in the depths of `j-raylib.ijs`, so you may need to update that.
 
 For Linux, I just compiled with `cmake` and the `-DBUILD_SHARED_LIBS=ON` flag. See the raylib readme and docs for more info
 For Windows, I downloaded the MSVC zip from the GitHub [releases](https://github.com/raysan5/raylib/releases/tag/5.0) page and extracted it to my `%USERPROFILE` (`C:\Users\NAME\raylib`)
  
+The location is currently hard-coded at to top of `j-raylib.ijs`, so you may need to update that.
+
 # Installation
 
 For now, just download `j-raylib.ijs` and load it via it's path, ie. `load 'j-raylib.ijs`.
@@ -72,7 +73,6 @@ I was thinking of further breaking the enums out into their own locales, because
 Here's another example with more interactivity.
 
 ```j
-
 load 'j-raylib.ijs'
 coinsert 'rl rlcolor rlenum'
 

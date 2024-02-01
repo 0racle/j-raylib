@@ -1,10 +1,20 @@
 
 cocurrent 'rl'
 
-Color    =: 256 #. |.
+nixlib =. '/usr/local/lib/libraylib.so'
+winlib =. jpath '~/raylib/lib/raylib.dll'
+raylib =. IFUNIX {:: winlib;nixlib
+
+Color =: {{
+    'r g b a' =. >  y
+    256 #. |. y
+}}
 Color_J  =: |.@((4 # 256) #: ]) :. Color
 
-Vector2  =: {.@(_2 fc 1 fc ])
+Vector2  =: {{
+    'vx vy' =. > y
+    {. _2 fc 1 fc vx,vy
+}}
 Vector2_J=:    (_1 fc 2 fc ])   :. Vector2
 
 cocurrent 'rlcolor'
@@ -36,7 +46,7 @@ BLANK        =: Color_rl_   0   0   0   0    NB. Blank (Transparent)
 MAGENTA      =: Color_rl_ 255   0 255 255    NB. Magenta
 RAYWHITE     =: Color_rl_ 245 245 245 255    NB. My own White (raylib logo)
 
-cocurrent 'rlenums'
+cocurrent 'rlenum'
 
 NB. cocurrent 'rlflag'
 
@@ -409,10 +419,6 @@ NPATCH_THREE_PATCH_VERTICAL              =: 1       NB. Npatch layout: 1x3 tiles
 NPATCH_THREE_PATCH_HORIZONTAL            =: 2       NB. Npatch layout: 3x1 tiles
 
 cocurrent 'rl'
-
-nixlib =. '/usr/local/lib/libraylib.so'
-winlib =. jpath '~/raylib/lib/raylib.dll'
-raylib =: IFUNIX {:: winlib;nixlib
 
 NB. void InitWindow(int width, int height, const char * title) // Initialize window and OpenGL context
 InitWindow =: 0 {:: (raylib,' InitWindow n i i *c') cd ]
