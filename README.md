@@ -45,9 +45,11 @@ CloseWindow ''
 
 # Dependencies
 
-You will need to have the raylib shared lib already installed.
+You will need to have the [raylib](https://github.com/raysan5/raylib) shared lib already installed.
 
-For Linux, I just compiled with `cmake` and the `-DBUILD_SHARED_LIBS=ON` flag. See the raylib readme and docs for more info
+For Linux, I just compiled with `cmake` and the `-DBUILD_SHARED_LIBS=ON` flag.
+See the raylib readme and docs for more info
+
 For Windows, I downloaded the MSVC zip from the GitHub [releases](https://github.com/raysan5/raylib/releases/tag/5.0) page and extracted it to my `%USERPROFILE` (`C:\Users\NAME\raylib`)
  
 The location is currently hard-coded at to top of `j-raylib.ijs`, so you may need to update that.
@@ -62,11 +64,10 @@ I did want to make a J addon that can be installed directly in J, but it seems J
 There's no 3d support year, nor the use of any other structs apart from `Vector2` and `Color`.
 To create `Vector2` and `Color` value structs, I'm doing a bit of bit gymnastics that the FFI (on my machine) seems happy with. I'm not sure if it will work on 32-bit platforms correctly.
 
-All functions (including the `Vector2` and `Color` J helper verbs) are under the `rl` local
-All colors are under 'rlcolor' and enums are under `rlenum`.
-
-If you want to just load in everthing into your current local, just `coinser 'rl rlcolor rlenum'`
-I was thinking of further breaking the enums out into their own locales, because, eg. the  3d related ones are currently useless in J.
+All functions (including the `Vector2` and `Color` J helper verbs) are under the `rl` Locale.
+All colors are under Locale `rlcolor`, and enums are under Locale `rlenum`.
+If you want to just load in everything into your current local, just `coinser 'rl rlcolor rlenum'`
+I was thinking of further breaking the enums out into their own locales, because, eg. The  3D related ones are currently useless in J.
 
 # More examples
 
@@ -120,3 +121,5 @@ Init ''
 (MainLoop)^:(-.@WindowShouldClose&'')^:(_) ''
 CloseWindow ''
 ```
+
+![example](screenshots/move.gif)
