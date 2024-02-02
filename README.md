@@ -174,3 +174,5 @@ Init ''
 (MainLoop)^:(-.@WindowShouldClose&'')^:(_) ''
 CloseWindow ''
 ```
+
+![example](screenshots/j-80.gif)
