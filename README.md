@@ -66,7 +66,7 @@ To create `Vector2` and `Color` value structs, I'm doing a bit of bit gymnastics
 
 All functions (including the `Vector2` and `Color` J helper verbs) are under the `rl` Locale.
 All colors are under Locale `rlcolor`, and enums are under Locale `rlenum`.
-If you want to just load in everything into your current local, just `coinsert 'rl rlcolor rlenum'`.
+If you want to load in everything into your current Locale, just `coinsert 'rl rlcolor rlenum'`.
 
 I was thinking of further breaking the enums out into their own locales, because, eg. The 3D related ones are currently useless in J.
 
@@ -124,3 +124,53 @@ CloseWindow ''
 ```
 
 ![example](screenshots/move.gif)
+
+```j
+cs =: Color@".;._2 {{)n
+ 26  28  44 255
+ 93  39  93 255
+177  62  83 255
+239 125  87 255
+255 205 117 255
+167 240 112 255
+ 56 183 100 255
+ 37 113 121 255
+ 41  54 111 255
+ 59  93 201 255
+ 65 166 246 255
+115 239 247 255
+244 244 244 255
+148 176 194 255
+ 86 108 134 255
+ 51  60  87 255
+}}
+
+'p q' =: 40 20
+d =: ,/ ,"0/~ i. p
+t =: |: |. <. {.@*. (_1 + 0.4 * ])@j./~ i. p
+
+Init =: {{
+    InitWindow (p*q);(p*q);'j-80'
+    SetTargetFPS 15
+}}
+
+Update =: {{
+    t =: 15 | <: t
+}}
+
+Draw =: {{
+    {{ DrawRectangle ((x*q);(y*q);q;q;cs {~ (<x;y) { t) }}/"1 d
+}}
+
+MainLoop =: {{
+    Update ''
+    BeginDrawing ''
+    Draw ''
+    EndDrawing ''
+    GetTime ''
+}}
+
+Init ''
+(MainLoop)^:(-.@WindowShouldClose&'')^:(_) ''
+CloseWindow ''
+```
