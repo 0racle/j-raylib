@@ -592,7 +592,9 @@ SetRandomSeed =: 0 {:: (raylib,' SetRandomSeed n i') cd ]
 NB. int GetRandomValue(int min, int max) // Get a random value between min and max (both included)
 GetRandomValue =: 0 {:: (raylib,' GetRandomValue i i i') cd ]
 NB. int * LoadRandomSequence(unsigned int count, int min, int max) // Load random values sequence, no values repeated
+LoadRandomSequence =: 0 {:: (raylib,' LoadRandomSequence *i i i i') cd ]
 NB. void UnloadRandomSequence(int * sequence) // Unload random values sequence
+UnloadRandomSequence =: 0 {:: (raylib,' UnloadRandomSequence n *i') cd ]
 NB. void TakeScreenshot(const char * fileName) // Takes a screenshot of current screen (filename extension defines format)
 TakeScreenshot =: 0 {:: (raylib,' TakeScreenshot n *c') cd ]
 NB. void SetConfigFlags(unsigned int flags) // Setup init configuration flags (view FLAGS)
@@ -615,8 +617,11 @@ NB. void UnloadFileData(unsigned char * data) // Unload file data allocated by L
 NB. bool SaveFileData(const char * fileName, void * data, int dataSize) // Save data to file from byte array (write), returns true on success
 NB. bool ExportDataAsCode(const unsigned char * data, int dataSize, const char * fileName) // Export data to code (.h), returns true on success
 NB. char * LoadFileText(const char * fileName) // Load text data from file (read), returns a '\0' terminated string
+LoadFileText =: 0 {:: (raylib,' LoadFileText *c *c') cd ]
 NB. void UnloadFileText(char * text) // Unload file text data allocated by LoadFileText()
+UnloadFileText =: 0 {:: (raylib,' UnloadFileText n *c') cd ]
 NB. bool SaveFileText(const char * fileName, char * text) // Save text data to file (write), string must be '\0' terminated, returns true on success
+SaveFileText =: 0 {:: (raylib,' SaveFileText b *c *c') cd ]
 NB. bool FileExists(const char * fileName) // Check if file exists
 FileExists =: 0 {:: (raylib,' FileExists b *c') cd ]
 NB. bool DirectoryExists(const char * dirPath) // Check if a directory path exists
@@ -1008,16 +1013,25 @@ NB. int GetGlyphIndex(Font font, int codepoint) // Get glyph index position in f
 NB. GlyphInfo GetGlyphInfo(Font font, int codepoint) // Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found
 NB. Rectangle GetGlyphAtlasRec(Font font, int codepoint) // Get glyph rectangle in font atlas for a codepoint (unicode character), fallback to '?' if not found
 NB. char * LoadUTF8(const int * codepoints, int length) // Load UTF-8 text encoded from codepoints array
+LoadUTF8 =: 0 {:: (raylib,' LoadUTF8 *c *i i') cd ]
 NB. void UnloadUTF8(char * text) // Unload UTF-8 text encoded from codepoints array
+UnloadUTF8 =: 0 {:: (raylib,' UnloadUTF8 n *c') cd ]
 NB. int * LoadCodepoints(const char * text, int * count) // Load all codepoints from a UTF-8 text string, codepoints count returned by parameter
+LoadCodepoints =: 0 {:: (raylib,' LoadCodepoints *i *c *i') cd ]
 NB. void UnloadCodepoints(int * codepoints) // Unload codepoints data from memory
+UnloadCodepoints =: 0 {:: (raylib,' UnloadCodepoints n *i') cd ]
 NB. int GetCodepointCount(const char * text) // Get total number of codepoints in a UTF-8 encoded string
 GetCodepointCount =: 0 {:: (raylib,' GetCodepointCount i *c') cd ]
 NB. int GetCodepoint(const char * text, int * codepointSize) // Get next codepoint in a UTF-8 encoded string, 0x3f('?') is returned on failure
+GetCodepoint =: 0 {:: (raylib,' GetCodepoint i *c *i') cd ]
 NB. int GetCodepointNext(const char * text, int * codepointSize) // Get next codepoint in a UTF-8 encoded string, 0x3f('?') is returned on failure
+GetCodepointNext =: 0 {:: (raylib,' GetCodepointNext i *c *i') cd ]
 NB. int GetCodepointPrevious(const char * text, int * codepointSize) // Get previous codepoint in a UTF-8 encoded string, 0x3f('?') is returned on failure
+GetCodepointPrevious =: 0 {:: (raylib,' GetCodepointPrevious i *c *i') cd ]
 NB. const char * CodepointToUTF8(int codepoint, int * utf8Size) // Encode one codepoint into UTF-8 byte array (array length returned as parameter)
+CodepointToUTF8 =: 0 {:: (raylib,' CodepointToUTF8 *c i *i') cd ]
 NB. int TextCopy(char * dst, const char * src) // Copy one string to another, returns bytes copied
+TextCopy =: 0 {:: (raylib,' TextCopy i *c *c') cd ]
 NB. bool TextIsEqual(const char * text1, const char * text2) // Check if two text string are equal
 TextIsEqual =: 0 {:: (raylib,' TextIsEqual b *c *c') cd ]
 NB. unsigned int TextLength(const char * text) // Get text length, checks for '\0' ending
@@ -1026,10 +1040,13 @@ NB. const char * TextFormat(const char * text, ... args) // Text formatting with
 NB. const char * TextSubtext(const char * text, int position, int length) // Get a piece of a text string
 TextSubtext =: 0 {:: (raylib,' TextSubtext *c *c i i') cd ]
 NB. char * TextReplace(const char * text, const char * replace, const char * by) // Replace text string (WARNING: memory must be freed!)
+TextReplace =: 0 {:: (raylib,' TextReplace *c *c *c *c') cd ]
 NB. char * TextInsert(const char * text, const char * insert, int position) // Insert text in a position (WARNING: memory must be freed!)
+TextInsert =: 0 {:: (raylib,' TextInsert *c *c *c i') cd ]
 NB. const char * TextJoin(const char ** textList, int count, const char * delimiter) // Join text strings with delimiter
 NB. const char ** TextSplit(const char * text, char delimiter, int * count) // Split text into multiple strings
 NB. void TextAppend(char * text, const char * append, int * position) // Append text at specific position and move cursor!
+TextAppend =: 0 {:: (raylib,' TextAppend n *c *c *i') cd ]
 NB. int TextFindIndex(const char * text, const char * find) // Find first text occurrence within a string
 TextFindIndex =: 0 {:: (raylib,' TextFindIndex i *c *c') cd ]
 NB. const char * TextToUpper(const char * text) // Get upper case version of provided string
