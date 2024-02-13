@@ -125,8 +125,17 @@ CloseWindow ''
 
 ![example](screenshots/move.gif)
 
+---
+
+A toy inspired by [BQN-80](https://dancek.github.io/bqn-80/) (available in the 'examples' folder)
+
 ```j
-cs =: Color@".;._2 {{)n
+load 'j-raylib.ijs'
+coinsert 'rl rlcolor rlenum'
+
+'WIDTH HEIGHT' =: 800 600
+
+COLORS =: Color@".;._2 {{)n
  26  28  44 255
  93  39  93 255
 177  62  83 255
@@ -145,34 +154,33 @@ cs =: Color@".;._2 {{)n
  51  60  87 255
 }}
 
-'p q' =: 40 20
-d =: ,/ ,"0/~ i. p
-t =: |: |. <. {.@*. (_1 + 0.4 * ])@j./~ i. p
-
 Init =: {{
-    InitWindow (p*q);(p*q);'j-80'
+    SetTraceLogLevel LOG_ERROR
+    InitWindow WIDTH;HEIGHT;'raymat'
     SetTargetFPS 15
 }}
 
-Update =: {{
-    t =: 15 | <: t
+DrawMat =: {{
+    q =. |. >. (HEIGHT,WIDTH) % $ y 
+    a =. <"0 q,"1~ q *"1 |."1 (#: i.@(*/)) $ y
+    DrawRectangle a ,. <"0 x {~ (<: # x) AND , y
 }}
 
-Draw =: {{
-    {{ DrawRectangle ((x*q);(y*q);q;q;cs {~ (<x;y) { t) }}/"1 d
+Run =: {{
+    Init ''
+    fc =. 0
+    while. -. WindowShouldClose '' do.
+        fc =. >: fc
+        BeginDrawing ''
+        x DrawMat y =. fc u y
+        EndDrawing ''
+    end.
+    CloseWindow ''
 }}
 
-MainLoop =: {{
-    Update ''
-    BeginDrawing ''
-    Draw ''
-    EndDrawing ''
-    GetTime ''
-}}
-
-Init ''
-(MainLoop)^:(-.@WindowShouldClose&'')^:(_) ''
-CloseWindow ''
+a =. |. <. {.@*. (_1 + 0.4 * ])@j./~ i. 40
+Step =: (# COLORS) | <:@]
+COLORS Step Run a
 ```
 
 ![example](screenshots/j-80.gif)
