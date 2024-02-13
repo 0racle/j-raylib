@@ -5,7 +5,7 @@ Note ''
 Inspired by [BQN-80][1] (which itself is inspired by TIC-80)
 
 Define a Verb where
-   x: current frame, starting from 0, incrementing each frame
+   x: current frame, starting from 1, incrementing each frame
    m: list of Raylib Colors defining the color pallette
    y: a matrix of numbers which will be mapped to the pallette `m`
 
