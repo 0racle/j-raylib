@@ -1,5 +1,3 @@
-#!/usr/bin/env j
-
 load '../j-raylib.ijs'
 coinsert 'rl rlcolor rlenum'
 
