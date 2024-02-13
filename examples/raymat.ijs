@@ -14,6 +14,7 @@ Then call `Run` where
    u: the above defined verb
    y: the numeric matrix
 
+[1]: https://dancek.github.io/bqn-80/
 )
 
 'WIDTH HEIGHT' =: 800 600
@@ -67,7 +68,7 @@ Step =: (# COLORS) | <:@]
 COLORS Step Run a
 
 NB. Example 2: Conway's Game of Life
-a =. ? 75 100 $ 2
+g =. ? 75 100 $ 2
 c =. <: (#: i.@(*/)) 3 3
 Iter =: c {{ +./ (1 ,: y) *. (3 4) =/ +/ m |. y }}
-(BLACK,ORANGE) Iter@] Run a
+(BLACK,ORANGE) Iter@] Run g
