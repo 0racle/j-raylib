@@ -77,6 +77,7 @@ Main =: {{
     bs =. EMPTY
     grav =. 0 1
     'posA posB' =. 0 0
+    gravB =. 1
 
     while. -. WindowShouldClose '' do.
 
@@ -93,8 +94,12 @@ Main =: {{
             bs =. bs,NewBall (posC,:posR)
         end.
 
+        NB. 'g' toggles gravity
+        gravB =. -.^:(IsKeyPressed KEY_G) gravB
+
         BeginDrawing ''
         ClearBackground BLACK
+        DrawText ('[g]ravity: ', gravB {:: 'off';'on');(width-180);10;20;WHITE
         if. posA *. posB do.
             ad =. '°' ,~ ": Round posA Angle posB
             ds =. ": Round posA Dist posB
@@ -106,7 +111,7 @@ Main =: {{
         if. * # bs do.
             DrawText (": # bs);10;10;20;WHITE
             bs =. (_0.01 * velK {"1 bs) ApplyForce bs  NB. apply friction
-            bs =. grav ApplyForce bs                   NB. apply gravity
+            bs =. (grav * gravB) ApplyForce bs         NB. apply gravity
             bs =. Integrate bs                         NB. update position
             bs =. (0 0,:width,height) Constrain bs     NB. constrain edges
             bs =. UpdateLife bs                        NB. update life (alpha)
