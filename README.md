@@ -8,11 +8,14 @@ Raylib bindings for the J programming language
 load 'j-raylib.ijs'
 coinsert 'rl'
 
-i =. 100
-p =. 10 +  (? i # ,: 480 480)
-s =.  5 -~ (? i # ,:  10  10)
-c =. ColorFromHSV"1 (1,.~ 1,.~ ? i $ 360)
-bs =: p,.10,.c,.s
+Randomize =: {{
+    p =.      10 + (? y # ,: 480 480)
+    s =. 5 -~ 10 * (? y # ,:   0   0)
+    c =. ColorFromHSV"1 (1,.~ 1,.~ ? y $ 360)
+    p,.10,.c,.s
+}}
+
+bs =: Randomize 100
 
 bg =: Color 20 20 20 255
 
@@ -32,7 +35,7 @@ Step =: {{
     BeginDrawing ''
     ClearBackground bg
     bs =: Move@Bounce"1 bs
-    DrawCircle"1 (i. 4) <@{"1 bs
+    DrawCircle"1 (i. 4) <@<.@{"1 bs
     EndDrawing ''
     bs
 }}
