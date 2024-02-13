@@ -20,8 +20,8 @@ DrawScore =: {{
 NewGame =: {{
 
     'right down left up' =. dirs =. (, -) =/~ i. 2
-    arrows =. KEY_RIGHT,KEY_DOWN,KEY_LEFT,KEY_UP
-    wasd   =. KEY_D    ,KEY_S   ,KEY_A   ,KEY_W
+    keys =. KEY_RIGHT,KEY_DOWN,KEY_LEFT,KEY_UP
+    NB. keys =. KEY_D,KEY_S,KEY_A,KEY_W
 
     sbuf  =. 5 ,.~ 5 - i. 5
     dbuf  =. ,: 1 0
@@ -54,7 +54,7 @@ NewGame =: {{
     while. -. WindowShouldClose '' do.
 
         NB. Get input, ignoring current and opposite dirs
-        dbuf =. dbuf, ((,: -) {: dbuf) -.~ dirs #~ IsKeyPressed"0 arrows
+        dbuf =. dbuf, ((,: -) {: dbuf) -.~ dirs #~ IsKeyPressed"0 keys
 
         BeginDrawing ''
         if. (0 = speed | frame =. >: frame) do.
