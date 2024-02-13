@@ -421,139 +421,139 @@ NPATCH_THREE_PATCH_HORIZONTAL            =: 2       NB. Npatch layout: 3x1 tiles
 cocurrent 'rl'
 
 NB. void InitWindow(int width, int height, const char * title) // Initialize window and OpenGL context
-InitWindow =: 0 {:: (raylib,' InitWindow n i i *c') cd ]
+InitWindow =: (raylib,' InitWindow > n i i *c') cd ]
 NB. void CloseWindow() // Close window and unload OpenGL context
-CloseWindow =: 0 {:: (raylib,' CloseWindow n') cd ]
+CloseWindow =: (raylib,' CloseWindow > n') cd ]
 NB. bool WindowShouldClose() // Check if application should close (KEY_ESCAPE pressed or windows close icon clicked)
-WindowShouldClose =: 0 {:: (raylib,' WindowShouldClose b') cd ]
+WindowShouldClose =: (raylib,' WindowShouldClose > b') cd ]
 NB. bool IsWindowReady() // Check if window has been initialized successfully
-IsWindowReady =: 0 {:: (raylib,' IsWindowReady b') cd ]
+IsWindowReady =: (raylib,' IsWindowReady > b') cd ]
 NB. bool IsWindowFullscreen() // Check if window is currently fullscreen
-IsWindowFullscreen =: 0 {:: (raylib,' IsWindowFullscreen b') cd ]
+IsWindowFullscreen =: (raylib,' IsWindowFullscreen > b') cd ]
 NB. bool IsWindowHidden() // Check if window is currently hidden (only PLATFORM_DESKTOP)
-IsWindowHidden =: 0 {:: (raylib,' IsWindowHidden b') cd ]
+IsWindowHidden =: (raylib,' IsWindowHidden > b') cd ]
 NB. bool IsWindowMinimized() // Check if window is currently minimized (only PLATFORM_DESKTOP)
-IsWindowMinimized =: 0 {:: (raylib,' IsWindowMinimized b') cd ]
+IsWindowMinimized =: (raylib,' IsWindowMinimized > b') cd ]
 NB. bool IsWindowMaximized() // Check if window is currently maximized (only PLATFORM_DESKTOP)
-IsWindowMaximized =: 0 {:: (raylib,' IsWindowMaximized b') cd ]
+IsWindowMaximized =: (raylib,' IsWindowMaximized > b') cd ]
 NB. bool IsWindowFocused() // Check if window is currently focused (only PLATFORM_DESKTOP)
-IsWindowFocused =: 0 {:: (raylib,' IsWindowFocused b') cd ]
+IsWindowFocused =: (raylib,' IsWindowFocused > b') cd ]
 NB. bool IsWindowResized() // Check if window has been resized last frame
-IsWindowResized =: 0 {:: (raylib,' IsWindowResized b') cd ]
+IsWindowResized =: (raylib,' IsWindowResized > b') cd ]
 NB. bool IsWindowState(unsigned int flag) // Check if one specific window flag is enabled
-IsWindowState =: 0 {:: (raylib,' IsWindowState b i') cd ]
+IsWindowState =: (raylib,' IsWindowState > b i') cd ]
 NB. void SetWindowState(unsigned int flags) // Set window configuration state using flags (only PLATFORM_DESKTOP)
-SetWindowState =: 0 {:: (raylib,' SetWindowState n i') cd ]
+SetWindowState =: (raylib,' SetWindowState > n i') cd ]
 NB. void ClearWindowState(unsigned int flags) // Clear window configuration state flags
-ClearWindowState =: 0 {:: (raylib,' ClearWindowState n i') cd ]
+ClearWindowState =: (raylib,' ClearWindowState > n i') cd ]
 NB. void ToggleFullscreen() // Toggle window state: fullscreen/windowed (only PLATFORM_DESKTOP)
-ToggleFullscreen =: 0 {:: (raylib,' ToggleFullscreen n') cd ]
+ToggleFullscreen =: (raylib,' ToggleFullscreen > n') cd ]
 NB. void ToggleBorderlessWindowed() // Toggle window state: borderless windowed (only PLATFORM_DESKTOP)
-ToggleBorderlessWindowed =: 0 {:: (raylib,' ToggleBorderlessWindowed n') cd ]
+ToggleBorderlessWindowed =: (raylib,' ToggleBorderlessWindowed > n') cd ]
 NB. void MaximizeWindow() // Set window state: maximized, if resizable (only PLATFORM_DESKTOP)
-MaximizeWindow =: 0 {:: (raylib,' MaximizeWindow n') cd ]
+MaximizeWindow =: (raylib,' MaximizeWindow > n') cd ]
 NB. void MinimizeWindow() // Set window state: minimized, if resizable (only PLATFORM_DESKTOP)
-MinimizeWindow =: 0 {:: (raylib,' MinimizeWindow n') cd ]
+MinimizeWindow =: (raylib,' MinimizeWindow > n') cd ]
 NB. void RestoreWindow() // Set window state: not minimized/maximized (only PLATFORM_DESKTOP)
-RestoreWindow =: 0 {:: (raylib,' RestoreWindow n') cd ]
+RestoreWindow =: (raylib,' RestoreWindow > n') cd ]
 NB. void SetWindowIcon(Image image) // Set icon for window (single image, RGBA 32bit, only PLATFORM_DESKTOP)
 NB. void SetWindowIcons(Image * images, int count) // Set icon for window (multiple images, RGBA 32bit, only PLATFORM_DESKTOP)
 NB. void SetWindowTitle(const char * title) // Set title for window (only PLATFORM_DESKTOP and PLATFORM_WEB)
-SetWindowTitle =: 0 {:: (raylib,' SetWindowTitle n *c') cd ]
+SetWindowTitle =: (raylib,' SetWindowTitle > n *c') cd ]
 NB. void SetWindowPosition(int x, int y) // Set window position on screen (only PLATFORM_DESKTOP)
-SetWindowPosition =: 0 {:: (raylib,' SetWindowPosition n i i') cd ]
+SetWindowPosition =: (raylib,' SetWindowPosition > n i i') cd ]
 NB. void SetWindowMonitor(int monitor) // Set monitor for the current window
-SetWindowMonitor =: 0 {:: (raylib,' SetWindowMonitor n i') cd ]
+SetWindowMonitor =: (raylib,' SetWindowMonitor > n i') cd ]
 NB. void SetWindowMinSize(int width, int height) // Set window minimum dimensions (for FLAG_WINDOW_RESIZABLE)
-SetWindowMinSize =: 0 {:: (raylib,' SetWindowMinSize n i i') cd ]
+SetWindowMinSize =: (raylib,' SetWindowMinSize > n i i') cd ]
 NB. void SetWindowMaxSize(int width, int height) // Set window maximum dimensions (for FLAG_WINDOW_RESIZABLE)
-SetWindowMaxSize =: 0 {:: (raylib,' SetWindowMaxSize n i i') cd ]
+SetWindowMaxSize =: (raylib,' SetWindowMaxSize > n i i') cd ]
 NB. void SetWindowSize(int width, int height) // Set window dimensions
-SetWindowSize =: 0 {:: (raylib,' SetWindowSize n i i') cd ]
+SetWindowSize =: (raylib,' SetWindowSize > n i i') cd ]
 NB. void SetWindowOpacity(float opacity) // Set window opacity [0.0f..1.0f] (only PLATFORM_DESKTOP)
-SetWindowOpacity =: 0 {:: (raylib,' SetWindowOpacity n f') cd ]
+SetWindowOpacity =: (raylib,' SetWindowOpacity > n f') cd ]
 NB. void SetWindowFocused() // Set window focused (only PLATFORM_DESKTOP)
-SetWindowFocused =: 0 {:: (raylib,' SetWindowFocused n') cd ]
+SetWindowFocused =: (raylib,' SetWindowFocused > n') cd ]
 NB. void * GetWindowHandle() // Get native window handle
 NB. int GetScreenWidth() // Get current screen width
-GetScreenWidth =: 0 {:: (raylib,' GetScreenWidth i') cd ]
+GetScreenWidth =: (raylib,' GetScreenWidth > i') cd ]
 NB. int GetScreenHeight() // Get current screen height
-GetScreenHeight =: 0 {:: (raylib,' GetScreenHeight i') cd ]
+GetScreenHeight =: (raylib,' GetScreenHeight > i') cd ]
 NB. int GetRenderWidth() // Get current render width (it considers HiDPI)
-GetRenderWidth =: 0 {:: (raylib,' GetRenderWidth i') cd ]
+GetRenderWidth =: (raylib,' GetRenderWidth > i') cd ]
 NB. int GetRenderHeight() // Get current render height (it considers HiDPI)
-GetRenderHeight =: 0 {:: (raylib,' GetRenderHeight i') cd ]
+GetRenderHeight =: (raylib,' GetRenderHeight > i') cd ]
 NB. int GetMonitorCount() // Get number of connected monitors
-GetMonitorCount =: 0 {:: (raylib,' GetMonitorCount i') cd ]
+GetMonitorCount =: (raylib,' GetMonitorCount > i') cd ]
 NB. int GetCurrentMonitor() // Get current connected monitor
-GetCurrentMonitor =: 0 {:: (raylib,' GetCurrentMonitor i') cd ]
+GetCurrentMonitor =: (raylib,' GetCurrentMonitor > i') cd ]
 NB. Vector2 GetMonitorPosition(int monitor) // Get specified monitor position
-GetMonitorPosition =: 0 {:: (raylib,' GetMonitorPosition d i') cd ]
+GetMonitorPosition =: (raylib,' GetMonitorPosition > d i') cd ]
 NB. int GetMonitorWidth(int monitor) // Get specified monitor width (current video mode used by monitor)
-GetMonitorWidth =: 0 {:: (raylib,' GetMonitorWidth i i') cd ]
+GetMonitorWidth =: (raylib,' GetMonitorWidth > i i') cd ]
 NB. int GetMonitorHeight(int monitor) // Get specified monitor height (current video mode used by monitor)
-GetMonitorHeight =: 0 {:: (raylib,' GetMonitorHeight i i') cd ]
+GetMonitorHeight =: (raylib,' GetMonitorHeight > i i') cd ]
 NB. int GetMonitorPhysicalWidth(int monitor) // Get specified monitor physical width in millimetres
-GetMonitorPhysicalWidth =: 0 {:: (raylib,' GetMonitorPhysicalWidth i i') cd ]
+GetMonitorPhysicalWidth =: (raylib,' GetMonitorPhysicalWidth > i i') cd ]
 NB. int GetMonitorPhysicalHeight(int monitor) // Get specified monitor physical height in millimetres
-GetMonitorPhysicalHeight =: 0 {:: (raylib,' GetMonitorPhysicalHeight i i') cd ]
+GetMonitorPhysicalHeight =: (raylib,' GetMonitorPhysicalHeight > i i') cd ]
 NB. int GetMonitorRefreshRate(int monitor) // Get specified monitor refresh rate
-GetMonitorRefreshRate =: 0 {:: (raylib,' GetMonitorRefreshRate i i') cd ]
+GetMonitorRefreshRate =: (raylib,' GetMonitorRefreshRate > i i') cd ]
 NB. Vector2 GetWindowPosition() // Get window position XY on monitor
-GetWindowPosition =: 0 {:: (raylib,' GetWindowPosition d') cd ]
+GetWindowPosition =: (raylib,' GetWindowPosition > d') cd ]
 NB. Vector2 GetWindowScaleDPI() // Get window scale DPI factor
-GetWindowScaleDPI =: 0 {:: (raylib,' GetWindowScaleDPI d') cd ]
+GetWindowScaleDPI =: (raylib,' GetWindowScaleDPI > d') cd ]
 NB. const char * GetMonitorName(int monitor) // Get the human-readable, UTF-8 encoded name of the specified monitor
 GetMonitorName =: 0 {:: (raylib,' GetMonitorName *c i') cd ]
 NB. void SetClipboardText(const char * text) // Set clipboard text content
-SetClipboardText =: 0 {:: (raylib,' SetClipboardText n *c') cd ]
+SetClipboardText =: (raylib,' SetClipboardText > n *c') cd ]
 NB. const char * GetClipboardText() // Get clipboard text content
 GetClipboardText =: 0 {:: (raylib,' GetClipboardText *c') cd ]
 NB. void EnableEventWaiting() // Enable waiting for events on EndDrawing(), no automatic event polling
-EnableEventWaiting =: 0 {:: (raylib,' EnableEventWaiting n') cd ]
+EnableEventWaiting =: (raylib,' EnableEventWaiting > n') cd ]
 NB. void DisableEventWaiting() // Disable waiting for events on EndDrawing(), automatic events polling
-DisableEventWaiting =: 0 {:: (raylib,' DisableEventWaiting n') cd ]
+DisableEventWaiting =: (raylib,' DisableEventWaiting > n') cd ]
 NB. void ShowCursor() // Shows cursor
-ShowCursor =: 0 {:: (raylib,' ShowCursor n') cd ]
+ShowCursor =: (raylib,' ShowCursor > n') cd ]
 NB. void HideCursor() // Hides cursor
-HideCursor =: 0 {:: (raylib,' HideCursor n') cd ]
+HideCursor =: (raylib,' HideCursor > n') cd ]
 NB. bool IsCursorHidden() // Check if cursor is not visible
-IsCursorHidden =: 0 {:: (raylib,' IsCursorHidden b') cd ]
+IsCursorHidden =: (raylib,' IsCursorHidden > b') cd ]
 NB. void EnableCursor() // Enables cursor (unlock cursor)
-EnableCursor =: 0 {:: (raylib,' EnableCursor n') cd ]
+EnableCursor =: (raylib,' EnableCursor > n') cd ]
 NB. void DisableCursor() // Disables cursor (lock cursor)
-DisableCursor =: 0 {:: (raylib,' DisableCursor n') cd ]
+DisableCursor =: (raylib,' DisableCursor > n') cd ]
 NB. bool IsCursorOnScreen() // Check if cursor is on the screen
-IsCursorOnScreen =: 0 {:: (raylib,' IsCursorOnScreen b') cd ]
+IsCursorOnScreen =: (raylib,' IsCursorOnScreen > b') cd ]
 NB. void ClearBackground(Color color) // Set background color (framebuffer clear color)
-ClearBackground =: 0 {:: (raylib,' ClearBackground n i') cd ]
+ClearBackground =: (raylib,' ClearBackground > n i') cd ]
 NB. void BeginDrawing() // Setup canvas (framebuffer) to start drawing
-BeginDrawing =: 0 {:: (raylib,' BeginDrawing n') cd ]
+BeginDrawing =: (raylib,' BeginDrawing > n') cd ]
 NB. void EndDrawing() // End canvas drawing and swap buffers (double buffering)
-EndDrawing =: 0 {:: (raylib,' EndDrawing n') cd ]
+EndDrawing =: (raylib,' EndDrawing > n') cd ]
 NB. void BeginMode2D(Camera2D camera) // Begin 2D mode with custom camera (2D)
 NB. void EndMode2D() // Ends 2D mode with custom camera
-EndMode2D =: 0 {:: (raylib,' EndMode2D n') cd ]
+EndMode2D =: (raylib,' EndMode2D > n') cd ]
 NB. void BeginMode3D(Camera3D camera) // Begin 3D mode with custom camera (3D)
 NB. void EndMode3D() // Ends 3D mode and returns to default 2D orthographic mode
-EndMode3D =: 0 {:: (raylib,' EndMode3D n') cd ]
+EndMode3D =: (raylib,' EndMode3D > n') cd ]
 NB. void BeginTextureMode(RenderTexture2D target) // Begin drawing to render texture
 NB. void EndTextureMode() // Ends drawing to render texture
-EndTextureMode =: 0 {:: (raylib,' EndTextureMode n') cd ]
+EndTextureMode =: (raylib,' EndTextureMode > n') cd ]
 NB. void BeginShaderMode(Shader shader) // Begin custom shader drawing
 NB. void EndShaderMode() // End custom shader drawing (use default shader)
-EndShaderMode =: 0 {:: (raylib,' EndShaderMode n') cd ]
+EndShaderMode =: (raylib,' EndShaderMode > n') cd ]
 NB. void BeginBlendMode(int mode) // Begin blending mode (alpha, additive, multiplied, subtract, custom)
-BeginBlendMode =: 0 {:: (raylib,' BeginBlendMode n i') cd ]
+BeginBlendMode =: (raylib,' BeginBlendMode > n i') cd ]
 NB. void EndBlendMode() // End blending mode (reset to default: alpha blending)
-EndBlendMode =: 0 {:: (raylib,' EndBlendMode n') cd ]
+EndBlendMode =: (raylib,' EndBlendMode > n') cd ]
 NB. void BeginScissorMode(int x, int y, int width, int height) // Begin scissor mode (define screen area for following drawing)
-BeginScissorMode =: 0 {:: (raylib,' BeginScissorMode n i i i i') cd ]
+BeginScissorMode =: (raylib,' BeginScissorMode > n i i i i') cd ]
 NB. void EndScissorMode() // End scissor mode
-EndScissorMode =: 0 {:: (raylib,' EndScissorMode n') cd ]
+EndScissorMode =: (raylib,' EndScissorMode > n') cd ]
 NB. void BeginVrStereoMode(VrStereoConfig config) // Begin stereo rendering (requires VR simulator)
 NB. void EndVrStereoMode() // End stereo rendering (requires VR simulator)
-EndVrStereoMode =: 0 {:: (raylib,' EndVrStereoMode n') cd ]
+EndVrStereoMode =: (raylib,' EndVrStereoMode > n') cd ]
 NB. VrStereoConfig LoadVrStereoConfig(VrDeviceInfo device) // Load VR stereo config for VR simulator device parameters
 NB. void UnloadVrStereoConfig(VrStereoConfig config) // Unload VR stereo config
 NB. Shader LoadShader(const char * vsFileName, const char * fsFileName) // Load shader from files and bind default locations
@@ -574,36 +574,36 @@ NB. Vector2 GetScreenToWorld2D(Vector2 position, Camera2D camera) // Get the wor
 NB. Vector2 GetWorldToScreenEx(Vector3 position, Camera camera, int width, int height) // Get size position for a 3d world space position
 NB. Vector2 GetWorldToScreen2D(Vector2 position, Camera2D camera) // Get the screen space position for a 2d camera world space position
 NB. void SetTargetFPS(int fps) // Set target FPS (maximum)
-SetTargetFPS =: 0 {:: (raylib,' SetTargetFPS n i') cd ]
+SetTargetFPS =: (raylib,' SetTargetFPS > n i') cd ]
 NB. float GetFrameTime() // Get time in seconds for last frame drawn (delta time)
-GetFrameTime =: 0 {:: (raylib,' GetFrameTime f') cd ]
+GetFrameTime =: (raylib,' GetFrameTime > f') cd ]
 NB. double GetTime() // Get elapsed time in seconds since InitWindow()
-GetTime =: 0 {:: (raylib,' GetTime d') cd ]
+GetTime =: (raylib,' GetTime > d') cd ]
 NB. int GetFPS() // Get current FPS
-GetFPS =: 0 {:: (raylib,' GetFPS i') cd ]
+GetFPS =: (raylib,' GetFPS > i') cd ]
 NB. void SwapScreenBuffer() // Swap back buffer with front buffer (screen drawing)
-SwapScreenBuffer =: 0 {:: (raylib,' SwapScreenBuffer n') cd ]
+SwapScreenBuffer =: (raylib,' SwapScreenBuffer > n') cd ]
 NB. void PollInputEvents() // Register all input events
-PollInputEvents =: 0 {:: (raylib,' PollInputEvents n') cd ]
+PollInputEvents =: (raylib,' PollInputEvents > n') cd ]
 NB. void WaitTime(double seconds) // Wait for some time (halt program execution)
-WaitTime =: 0 {:: (raylib,' WaitTime n d') cd ]
+WaitTime =: (raylib,' WaitTime > n d') cd ]
 NB. void SetRandomSeed(unsigned int seed) // Set the seed for the random number generator
-SetRandomSeed =: 0 {:: (raylib,' SetRandomSeed n i') cd ]
+SetRandomSeed =: (raylib,' SetRandomSeed > n i') cd ]
 NB. int GetRandomValue(int min, int max) // Get a random value between min and max (both included)
-GetRandomValue =: 0 {:: (raylib,' GetRandomValue i i i') cd ]
+GetRandomValue =: (raylib,' GetRandomValue > i i i') cd ]
 NB. int * LoadRandomSequence(unsigned int count, int min, int max) // Load random values sequence, no values repeated
 LoadRandomSequence =: 0 {:: (raylib,' LoadRandomSequence *i i i i') cd ]
 NB. void UnloadRandomSequence(int * sequence) // Unload random values sequence
-UnloadRandomSequence =: 0 {:: (raylib,' UnloadRandomSequence n *i') cd ]
+UnloadRandomSequence =: (raylib,' UnloadRandomSequence > n *i') cd ]
 NB. void TakeScreenshot(const char * fileName) // Takes a screenshot of current screen (filename extension defines format)
-TakeScreenshot =: 0 {:: (raylib,' TakeScreenshot n *c') cd ]
+TakeScreenshot =: (raylib,' TakeScreenshot > n *c') cd ]
 NB. void SetConfigFlags(unsigned int flags) // Setup init configuration flags (view FLAGS)
-SetConfigFlags =: 0 {:: (raylib,' SetConfigFlags n i') cd ]
+SetConfigFlags =: (raylib,' SetConfigFlags > n i') cd ]
 NB. void OpenURL(const char * url) // Open URL with default system browser (if available)
-OpenURL =: 0 {:: (raylib,' OpenURL n *c') cd ]
+OpenURL =: (raylib,' OpenURL > n *c') cd ]
 NB. void TraceLog(int logLevel, const char * text, ... args) // Show trace log messages (LOG_DEBUG, LOG_INFO, LOG_WARNING, LOG_ERROR...)
 NB. void SetTraceLogLevel(int logLevel) // Set the current threshold (minimum) log level
-SetTraceLogLevel =: 0 {:: (raylib,' SetTraceLogLevel n i') cd ]
+SetTraceLogLevel =: (raylib,' SetTraceLogLevel > n i') cd ]
 NB. void * MemAlloc(unsigned int size) // Internal memory allocator
 NB. void * MemRealloc(void * ptr, unsigned int size) // Internal memory reallocator
 NB. void MemFree(void * ptr) // Internal memory free
@@ -619,17 +619,17 @@ NB. bool ExportDataAsCode(const unsigned char * data, int dataSize, const char *
 NB. char * LoadFileText(const char * fileName) // Load text data from file (read), returns a '\0' terminated string
 LoadFileText =: 0 {:: (raylib,' LoadFileText *c *c') cd ]
 NB. void UnloadFileText(char * text) // Unload file text data allocated by LoadFileText()
-UnloadFileText =: 0 {:: (raylib,' UnloadFileText n *c') cd ]
+UnloadFileText =: (raylib,' UnloadFileText > n *c') cd ]
 NB. bool SaveFileText(const char * fileName, char * text) // Save text data to file (write), string must be '\0' terminated, returns true on success
-SaveFileText =: 0 {:: (raylib,' SaveFileText b *c *c') cd ]
+SaveFileText =: (raylib,' SaveFileText > b *c *c') cd ]
 NB. bool FileExists(const char * fileName) // Check if file exists
-FileExists =: 0 {:: (raylib,' FileExists b *c') cd ]
+FileExists =: (raylib,' FileExists > b *c') cd ]
 NB. bool DirectoryExists(const char * dirPath) // Check if a directory path exists
-DirectoryExists =: 0 {:: (raylib,' DirectoryExists b *c') cd ]
+DirectoryExists =: (raylib,' DirectoryExists > b *c') cd ]
 NB. bool IsFileExtension(const char * fileName, const char * ext) // Check file extension (including point: .png, .wav)
-IsFileExtension =: 0 {:: (raylib,' IsFileExtension b *c *c') cd ]
+IsFileExtension =: (raylib,' IsFileExtension > b *c *c') cd ]
 NB. int GetFileLength(const char * fileName) // Get file length in bytes (NOTE: GetFileSize() conflicts with windows.h)
-GetFileLength =: 0 {:: (raylib,' GetFileLength i *c') cd ]
+GetFileLength =: (raylib,' GetFileLength > i *c') cd ]
 NB. const char * GetFileExtension(const char * fileName) // Get pointer to extension for a filename string (includes dot: '.png')
 GetFileExtension =: 0 {:: (raylib,' GetFileExtension *c *c') cd ]
 NB. const char * GetFileName(const char * filePath) // Get pointer to filename for a path string
@@ -645,14 +645,14 @@ GetWorkingDirectory =: 0 {:: (raylib,' GetWorkingDirectory *c') cd ]
 NB. const char * GetApplicationDirectory() // Get the directory of the running application (uses static string)
 GetApplicationDirectory =: 0 {:: (raylib,' GetApplicationDirectory *c') cd ]
 NB. bool ChangeDirectory(const char * dir) // Change working directory, return true on success
-ChangeDirectory =: 0 {:: (raylib,' ChangeDirectory b *c') cd ]
+ChangeDirectory =: (raylib,' ChangeDirectory > b *c') cd ]
 NB. bool IsPathFile(const char * path) // Check if a given path is a file or a directory
-IsPathFile =: 0 {:: (raylib,' IsPathFile b *c') cd ]
+IsPathFile =: (raylib,' IsPathFile > b *c') cd ]
 NB. FilePathList LoadDirectoryFiles(const char * dirPath) // Load directory filepaths
 NB. FilePathList LoadDirectoryFilesEx(const char * basePath, const char * filter, bool scanSubdirs) // Load directory filepaths with extension filtering and recursive directory scan
 NB. void UnloadDirectoryFiles(FilePathList files) // Unload filepaths
 NB. bool IsFileDropped() // Check if a file has been dropped into window
-IsFileDropped =: 0 {:: (raylib,' IsFileDropped b') cd ]
+IsFileDropped =: (raylib,' IsFileDropped > b') cd ]
 NB. FilePathList LoadDroppedFiles() // Load dropped filepaths
 NB. void UnloadDroppedFiles(FilePathList files) // Unload dropped filepaths
 NB. long GetFileModTime(const char * fileName) // Get file modification time (last write time)
@@ -665,208 +665,208 @@ NB. void UnloadAutomationEventList(AutomationEventList list) // Unload automatio
 NB. bool ExportAutomationEventList(AutomationEventList list, const char * fileName) // Export automation events list as text file
 NB. void SetAutomationEventList(AutomationEventList * list) // Set automation event list to record to
 NB. void SetAutomationEventBaseFrame(int frame) // Set automation event internal base frame to start recording
-SetAutomationEventBaseFrame =: 0 {:: (raylib,' SetAutomationEventBaseFrame n i') cd ]
+SetAutomationEventBaseFrame =: (raylib,' SetAutomationEventBaseFrame > n i') cd ]
 NB. void StartAutomationEventRecording() // Start recording automation events (AutomationEventList must be set)
-StartAutomationEventRecording =: 0 {:: (raylib,' StartAutomationEventRecording n') cd ]
+StartAutomationEventRecording =: (raylib,' StartAutomationEventRecording > n') cd ]
 NB. void StopAutomationEventRecording() // Stop recording automation events
-StopAutomationEventRecording =: 0 {:: (raylib,' StopAutomationEventRecording n') cd ]
+StopAutomationEventRecording =: (raylib,' StopAutomationEventRecording > n') cd ]
 NB. void PlayAutomationEvent(AutomationEvent event) // Play a recorded automation event
 NB. bool IsKeyPressed(int key) // Check if a key has been pressed once
-IsKeyPressed =: 0 {:: (raylib,' IsKeyPressed b i') cd ]
+IsKeyPressed =: (raylib,' IsKeyPressed > b i') cd ]
 NB. bool IsKeyPressedRepeat(int key) // Check if a key has been pressed again (Only PLATFORM_DESKTOP)
-IsKeyPressedRepeat =: 0 {:: (raylib,' IsKeyPressedRepeat b i') cd ]
+IsKeyPressedRepeat =: (raylib,' IsKeyPressedRepeat > b i') cd ]
 NB. bool IsKeyDown(int key) // Check if a key is being pressed
-IsKeyDown =: 0 {:: (raylib,' IsKeyDown b i') cd ]
+IsKeyDown =: (raylib,' IsKeyDown > b i') cd ]
 NB. bool IsKeyReleased(int key) // Check if a key has been released once
-IsKeyReleased =: 0 {:: (raylib,' IsKeyReleased b i') cd ]
+IsKeyReleased =: (raylib,' IsKeyReleased > b i') cd ]
 NB. bool IsKeyUp(int key) // Check if a key is NOT being pressed
-IsKeyUp =: 0 {:: (raylib,' IsKeyUp b i') cd ]
+IsKeyUp =: (raylib,' IsKeyUp > b i') cd ]
 NB. int GetKeyPressed() // Get key pressed (keycode), call it multiple times for keys queued, returns 0 when the queue is empty
-GetKeyPressed =: 0 {:: (raylib,' GetKeyPressed i') cd ]
+GetKeyPressed =: (raylib,' GetKeyPressed > i') cd ]
 NB. int GetCharPressed() // Get char pressed (unicode), call it multiple times for chars queued, returns 0 when the queue is empty
-GetCharPressed =: 0 {:: (raylib,' GetCharPressed i') cd ]
+GetCharPressed =: (raylib,' GetCharPressed > i') cd ]
 NB. void SetExitKey(int key) // Set a custom key to exit program (default is ESC)
-SetExitKey =: 0 {:: (raylib,' SetExitKey n i') cd ]
+SetExitKey =: (raylib,' SetExitKey > n i') cd ]
 NB. bool IsGamepadAvailable(int gamepad) // Check if a gamepad is available
-IsGamepadAvailable =: 0 {:: (raylib,' IsGamepadAvailable b i') cd ]
+IsGamepadAvailable =: (raylib,' IsGamepadAvailable > b i') cd ]
 NB. const char * GetGamepadName(int gamepad) // Get gamepad internal name id
 GetGamepadName =: 0 {:: (raylib,' GetGamepadName *c i') cd ]
 NB. bool IsGamepadButtonPressed(int gamepad, int button) // Check if a gamepad button has been pressed once
-IsGamepadButtonPressed =: 0 {:: (raylib,' IsGamepadButtonPressed b i i') cd ]
+IsGamepadButtonPressed =: (raylib,' IsGamepadButtonPressed > b i i') cd ]
 NB. bool IsGamepadButtonDown(int gamepad, int button) // Check if a gamepad button is being pressed
-IsGamepadButtonDown =: 0 {:: (raylib,' IsGamepadButtonDown b i i') cd ]
+IsGamepadButtonDown =: (raylib,' IsGamepadButtonDown > b i i') cd ]
 NB. bool IsGamepadButtonReleased(int gamepad, int button) // Check if a gamepad button has been released once
-IsGamepadButtonReleased =: 0 {:: (raylib,' IsGamepadButtonReleased b i i') cd ]
+IsGamepadButtonReleased =: (raylib,' IsGamepadButtonReleased > b i i') cd ]
 NB. bool IsGamepadButtonUp(int gamepad, int button) // Check if a gamepad button is NOT being pressed
-IsGamepadButtonUp =: 0 {:: (raylib,' IsGamepadButtonUp b i i') cd ]
+IsGamepadButtonUp =: (raylib,' IsGamepadButtonUp > b i i') cd ]
 NB. int GetGamepadButtonPressed() // Get the last gamepad button pressed
-GetGamepadButtonPressed =: 0 {:: (raylib,' GetGamepadButtonPressed i') cd ]
+GetGamepadButtonPressed =: (raylib,' GetGamepadButtonPressed > i') cd ]
 NB. int GetGamepadAxisCount(int gamepad) // Get gamepad axis count for a gamepad
-GetGamepadAxisCount =: 0 {:: (raylib,' GetGamepadAxisCount i i') cd ]
+GetGamepadAxisCount =: (raylib,' GetGamepadAxisCount > i i') cd ]
 NB. float GetGamepadAxisMovement(int gamepad, int axis) // Get axis movement value for a gamepad axis
-GetGamepadAxisMovement =: 0 {:: (raylib,' GetGamepadAxisMovement f i i') cd ]
+GetGamepadAxisMovement =: (raylib,' GetGamepadAxisMovement > f i i') cd ]
 NB. int SetGamepadMappings(const char * mappings) // Set internal gamepad mappings (SDL_GameControllerDB)
-SetGamepadMappings =: 0 {:: (raylib,' SetGamepadMappings i *c') cd ]
+SetGamepadMappings =: (raylib,' SetGamepadMappings > i *c') cd ]
 NB. bool IsMouseButtonPressed(int button) // Check if a mouse button has been pressed once
-IsMouseButtonPressed =: 0 {:: (raylib,' IsMouseButtonPressed b i') cd ]
+IsMouseButtonPressed =: (raylib,' IsMouseButtonPressed > b i') cd ]
 NB. bool IsMouseButtonDown(int button) // Check if a mouse button is being pressed
-IsMouseButtonDown =: 0 {:: (raylib,' IsMouseButtonDown b i') cd ]
+IsMouseButtonDown =: (raylib,' IsMouseButtonDown > b i') cd ]
 NB. bool IsMouseButtonReleased(int button) // Check if a mouse button has been released once
-IsMouseButtonReleased =: 0 {:: (raylib,' IsMouseButtonReleased b i') cd ]
+IsMouseButtonReleased =: (raylib,' IsMouseButtonReleased > b i') cd ]
 NB. bool IsMouseButtonUp(int button) // Check if a mouse button is NOT being pressed
-IsMouseButtonUp =: 0 {:: (raylib,' IsMouseButtonUp b i') cd ]
+IsMouseButtonUp =: (raylib,' IsMouseButtonUp > b i') cd ]
 NB. int GetMouseX() // Get mouse position X
-GetMouseX =: 0 {:: (raylib,' GetMouseX i') cd ]
+GetMouseX =: (raylib,' GetMouseX > i') cd ]
 NB. int GetMouseY() // Get mouse position Y
-GetMouseY =: 0 {:: (raylib,' GetMouseY i') cd ]
+GetMouseY =: (raylib,' GetMouseY > i') cd ]
 NB. Vector2 GetMousePosition() // Get mouse position XY
-GetMousePosition =: 0 {:: (raylib,' GetMousePosition d') cd ]
+GetMousePosition =: (raylib,' GetMousePosition > d') cd ]
 NB. Vector2 GetMouseDelta() // Get mouse delta between frames
-GetMouseDelta =: 0 {:: (raylib,' GetMouseDelta d') cd ]
+GetMouseDelta =: (raylib,' GetMouseDelta > d') cd ]
 NB. void SetMousePosition(int x, int y) // Set mouse position XY
-SetMousePosition =: 0 {:: (raylib,' SetMousePosition n i i') cd ]
+SetMousePosition =: (raylib,' SetMousePosition > n i i') cd ]
 NB. void SetMouseOffset(int offsetX, int offsetY) // Set mouse offset
-SetMouseOffset =: 0 {:: (raylib,' SetMouseOffset n i i') cd ]
+SetMouseOffset =: (raylib,' SetMouseOffset > n i i') cd ]
 NB. void SetMouseScale(float scaleX, float scaleY) // Set mouse scaling
-SetMouseScale =: 0 {:: (raylib,' SetMouseScale n f f') cd ]
+SetMouseScale =: (raylib,' SetMouseScale > n f f') cd ]
 NB. float GetMouseWheelMove() // Get mouse wheel movement for X or Y, whichever is larger
-GetMouseWheelMove =: 0 {:: (raylib,' GetMouseWheelMove f') cd ]
+GetMouseWheelMove =: (raylib,' GetMouseWheelMove > f') cd ]
 NB. Vector2 GetMouseWheelMoveV() // Get mouse wheel movement for both X and Y
-GetMouseWheelMoveV =: 0 {:: (raylib,' GetMouseWheelMoveV d') cd ]
+GetMouseWheelMoveV =: (raylib,' GetMouseWheelMoveV > d') cd ]
 NB. void SetMouseCursor(int cursor) // Set mouse cursor
-SetMouseCursor =: 0 {:: (raylib,' SetMouseCursor n i') cd ]
+SetMouseCursor =: (raylib,' SetMouseCursor > n i') cd ]
 NB. int GetTouchX() // Get touch position X for touch point 0 (relative to screen size)
-GetTouchX =: 0 {:: (raylib,' GetTouchX i') cd ]
+GetTouchX =: (raylib,' GetTouchX > i') cd ]
 NB. int GetTouchY() // Get touch position Y for touch point 0 (relative to screen size)
-GetTouchY =: 0 {:: (raylib,' GetTouchY i') cd ]
+GetTouchY =: (raylib,' GetTouchY > i') cd ]
 NB. Vector2 GetTouchPosition(int index) // Get touch position XY for a touch point index (relative to screen size)
-GetTouchPosition =: 0 {:: (raylib,' GetTouchPosition d i') cd ]
+GetTouchPosition =: (raylib,' GetTouchPosition > d i') cd ]
 NB. int GetTouchPointId(int index) // Get touch point identifier for given index
-GetTouchPointId =: 0 {:: (raylib,' GetTouchPointId i i') cd ]
+GetTouchPointId =: (raylib,' GetTouchPointId > i i') cd ]
 NB. int GetTouchPointCount() // Get number of touch points
-GetTouchPointCount =: 0 {:: (raylib,' GetTouchPointCount i') cd ]
+GetTouchPointCount =: (raylib,' GetTouchPointCount > i') cd ]
 NB. void SetGesturesEnabled(unsigned int flags) // Enable a set of gestures using flags
-SetGesturesEnabled =: 0 {:: (raylib,' SetGesturesEnabled n i') cd ]
+SetGesturesEnabled =: (raylib,' SetGesturesEnabled > n i') cd ]
 NB. bool IsGestureDetected(unsigned int gesture) // Check if a gesture have been detected
-IsGestureDetected =: 0 {:: (raylib,' IsGestureDetected b i') cd ]
+IsGestureDetected =: (raylib,' IsGestureDetected > b i') cd ]
 NB. int GetGestureDetected() // Get latest detected gesture
-GetGestureDetected =: 0 {:: (raylib,' GetGestureDetected i') cd ]
+GetGestureDetected =: (raylib,' GetGestureDetected > i') cd ]
 NB. float GetGestureHoldDuration() // Get gesture hold time in milliseconds
-GetGestureHoldDuration =: 0 {:: (raylib,' GetGestureHoldDuration f') cd ]
+GetGestureHoldDuration =: (raylib,' GetGestureHoldDuration > f') cd ]
 NB. Vector2 GetGestureDragVector() // Get gesture drag vector
-GetGestureDragVector =: 0 {:: (raylib,' GetGestureDragVector d') cd ]
+GetGestureDragVector =: (raylib,' GetGestureDragVector > d') cd ]
 NB. float GetGestureDragAngle() // Get gesture drag angle
-GetGestureDragAngle =: 0 {:: (raylib,' GetGestureDragAngle f') cd ]
+GetGestureDragAngle =: (raylib,' GetGestureDragAngle > f') cd ]
 NB. Vector2 GetGesturePinchVector() // Get gesture pinch delta
-GetGesturePinchVector =: 0 {:: (raylib,' GetGesturePinchVector d') cd ]
+GetGesturePinchVector =: (raylib,' GetGesturePinchVector > d') cd ]
 NB. float GetGesturePinchAngle() // Get gesture pinch angle
-GetGesturePinchAngle =: 0 {:: (raylib,' GetGesturePinchAngle f') cd ]
+GetGesturePinchAngle =: (raylib,' GetGesturePinchAngle > f') cd ]
 NB. void UpdateCamera(Camera * camera, int mode) // Update camera position for selected mode
 NB. void UpdateCameraPro(Camera * camera, Vector3 movement, Vector3 rotation, float zoom) // Update camera movement/rotation
 NB. void SetShapesTexture(Texture2D texture, Rectangle source) // Set texture and rectangle to be used on shapes drawing
 NB. Texture2D GetShapesTexture() // Get texture that is used for shapes drawing
 NB. Rectangle GetShapesTextureRectangle() // Get texture source rectangle that is used for shapes drawing
 NB. void DrawPixel(int posX, int posY, Color color) // Draw a pixel
-DrawPixel =: 0 {:: (raylib,' DrawPixel n i i i') cd ]
+DrawPixel =: (raylib,' DrawPixel > n i i i') cd ]
 NB. void DrawPixelV(Vector2 position, Color color) // Draw a pixel (Vector version)
-DrawPixelV =: 0 {:: (raylib,' DrawPixelV n d i') cd ]
+DrawPixelV =: (raylib,' DrawPixelV > n d i') cd ]
 NB. void DrawLine(int startPosX, int startPosY, int endPosX, int endPosY, Color color) // Draw a line
-DrawLine =: 0 {:: (raylib,' DrawLine n i i i i i') cd ]
+DrawLine =: (raylib,' DrawLine > n i i i i i') cd ]
 NB. void DrawLineV(Vector2 startPos, Vector2 endPos, Color color) // Draw a line (using gl lines)
-DrawLineV =: 0 {:: (raylib,' DrawLineV n d d i') cd ]
+DrawLineV =: (raylib,' DrawLineV > n d d i') cd ]
 NB. void DrawLineEx(Vector2 startPos, Vector2 endPos, float thick, Color color) // Draw a line (using triangles/quads)
-DrawLineEx =: 0 {:: (raylib,' DrawLineEx n d d f i') cd ]
+DrawLineEx =: (raylib,' DrawLineEx > n d d f i') cd ]
 NB. void DrawLineStrip(Vector2 * points, int pointCount, Color color) // Draw lines sequence (using gl lines)
 NB. void DrawLineBezier(Vector2 startPos, Vector2 endPos, float thick, Color color) // Draw line segment cubic-bezier in-out interpolation
-DrawLineBezier =: 0 {:: (raylib,' DrawLineBezier n d d f i') cd ]
+DrawLineBezier =: (raylib,' DrawLineBezier > n d d f i') cd ]
 NB. void DrawCircle(int centerX, int centerY, float radius, Color color) // Draw a color-filled circle
-DrawCircle =: 0 {:: (raylib,' DrawCircle n i i f i') cd ]
+DrawCircle =: (raylib,' DrawCircle > n i i f i') cd ]
 NB. void DrawCircleSector(Vector2 center, float radius, float startAngle, float endAngle, int segments, Color color) // Draw a piece of a circle
-DrawCircleSector =: 0 {:: (raylib,' DrawCircleSector n d f f f i i') cd ]
+DrawCircleSector =: (raylib,' DrawCircleSector > n d f f f i i') cd ]
 NB. void DrawCircleSectorLines(Vector2 center, float radius, float startAngle, float endAngle, int segments, Color color) // Draw circle sector outline
-DrawCircleSectorLines =: 0 {:: (raylib,' DrawCircleSectorLines n d f f f i i') cd ]
+DrawCircleSectorLines =: (raylib,' DrawCircleSectorLines > n d f f f i i') cd ]
 NB. void DrawCircleGradient(int centerX, int centerY, float radius, Color color1, Color color2) // Draw a gradient-filled circle
-DrawCircleGradient =: 0 {:: (raylib,' DrawCircleGradient n i i f i i') cd ]
+DrawCircleGradient =: (raylib,' DrawCircleGradient > n i i f i i') cd ]
 NB. void DrawCircleV(Vector2 center, float radius, Color color) // Draw a color-filled circle (Vector version)
-DrawCircleV =: 0 {:: (raylib,' DrawCircleV n d f i') cd ]
+DrawCircleV =: (raylib,' DrawCircleV > n d f i') cd ]
 NB. void DrawCircleLines(int centerX, int centerY, float radius, Color color) // Draw circle outline
-DrawCircleLines =: 0 {:: (raylib,' DrawCircleLines n i i f i') cd ]
+DrawCircleLines =: (raylib,' DrawCircleLines > n i i f i') cd ]
 NB. void DrawCircleLinesV(Vector2 center, float radius, Color color) // Draw circle outline (Vector version)
-DrawCircleLinesV =: 0 {:: (raylib,' DrawCircleLinesV n d f i') cd ]
+DrawCircleLinesV =: (raylib,' DrawCircleLinesV > n d f i') cd ]
 NB. void DrawEllipse(int centerX, int centerY, float radiusH, float radiusV, Color color) // Draw ellipse
-DrawEllipse =: 0 {:: (raylib,' DrawEllipse n i i f f i') cd ]
+DrawEllipse =: (raylib,' DrawEllipse > n i i f f i') cd ]
 NB. void DrawEllipseLines(int centerX, int centerY, float radiusH, float radiusV, Color color) // Draw ellipse outline
-DrawEllipseLines =: 0 {:: (raylib,' DrawEllipseLines n i i f f i') cd ]
+DrawEllipseLines =: (raylib,' DrawEllipseLines > n i i f f i') cd ]
 NB. void DrawRing(Vector2 center, float innerRadius, float outerRadius, float startAngle, float endAngle, int segments, Color color) // Draw ring
-DrawRing =: 0 {:: (raylib,' DrawRing n d f f f f i i') cd ]
+DrawRing =: (raylib,' DrawRing > n d f f f f i i') cd ]
 NB. void DrawRingLines(Vector2 center, float innerRadius, float outerRadius, float startAngle, float endAngle, int segments, Color color) // Draw ring outline
-DrawRingLines =: 0 {:: (raylib,' DrawRingLines n d f f f f i i') cd ]
+DrawRingLines =: (raylib,' DrawRingLines > n d f f f f i i') cd ]
 NB. void DrawRectangle(int posX, int posY, int width, int height, Color color) // Draw a color-filled rectangle
-DrawRectangle =: 0 {:: (raylib,' DrawRectangle n i i i i i') cd ]
+DrawRectangle =: (raylib,' DrawRectangle > n i i i i i') cd ]
 NB. void DrawRectangleV(Vector2 position, Vector2 size, Color color) // Draw a color-filled rectangle (Vector version)
-DrawRectangleV =: 0 {:: (raylib,' DrawRectangleV n d d i') cd ]
+DrawRectangleV =: (raylib,' DrawRectangleV > n d d i') cd ]
 NB. void DrawRectangleRec(Rectangle rec, Color color) // Draw a color-filled rectangle
 NB. void DrawRectanglePro(Rectangle rec, Vector2 origin, float rotation, Color color) // Draw a color-filled rectangle with pro parameters
 NB. void DrawRectangleGradientV(int posX, int posY, int width, int height, Color color1, Color color2) // Draw a vertical-gradient-filled rectangle
-DrawRectangleGradientV =: 0 {:: (raylib,' DrawRectangleGradientV n i i i i i i') cd ]
+DrawRectangleGradientV =: (raylib,' DrawRectangleGradientV > n i i i i i i') cd ]
 NB. void DrawRectangleGradientH(int posX, int posY, int width, int height, Color color1, Color color2) // Draw a horizontal-gradient-filled rectangle
-DrawRectangleGradientH =: 0 {:: (raylib,' DrawRectangleGradientH n i i i i i i') cd ]
+DrawRectangleGradientH =: (raylib,' DrawRectangleGradientH > n i i i i i i') cd ]
 NB. void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col4) // Draw a gradient-filled rectangle with custom vertex colors
 NB. void DrawRectangleLines(int posX, int posY, int width, int height, Color color) // Draw rectangle outline
-DrawRectangleLines =: 0 {:: (raylib,' DrawRectangleLines n i i i i i') cd ]
+DrawRectangleLines =: (raylib,' DrawRectangleLines > n i i i i i') cd ]
 NB. void DrawRectangleLinesEx(Rectangle rec, float lineThick, Color color) // Draw rectangle outline with extended parameters
 NB. void DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color color) // Draw rectangle with rounded edges
 NB. void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, float lineThick, Color color) // Draw rectangle with rounded edges outline
 NB. void DrawTriangle(Vector2 v1, Vector2 v2, Vector2 v3, Color color) // Draw a color-filled triangle (vertex in counter-clockwise order!)
-DrawTriangle =: 0 {:: (raylib,' DrawTriangle n d d d i') cd ]
+DrawTriangle =: (raylib,' DrawTriangle > n d d d i') cd ]
 NB. void DrawTriangleLines(Vector2 v1, Vector2 v2, Vector2 v3, Color color) // Draw triangle outline (vertex in counter-clockwise order!)
-DrawTriangleLines =: 0 {:: (raylib,' DrawTriangleLines n d d d i') cd ]
+DrawTriangleLines =: (raylib,' DrawTriangleLines > n d d d i') cd ]
 NB. void DrawTriangleFan(Vector2 * points, int pointCount, Color color) // Draw a triangle fan defined by points (first vertex is the center)
 NB. void DrawTriangleStrip(Vector2 * points, int pointCount, Color color) // Draw a triangle strip defined by points
 NB. void DrawPoly(Vector2 center, int sides, float radius, float rotation, Color color) // Draw a regular polygon (Vector version)
-DrawPoly =: 0 {:: (raylib,' DrawPoly n d i f f i') cd ]
+DrawPoly =: (raylib,' DrawPoly > n d i f f i') cd ]
 NB. void DrawPolyLines(Vector2 center, int sides, float radius, float rotation, Color color) // Draw a polygon outline of n sides
-DrawPolyLines =: 0 {:: (raylib,' DrawPolyLines n d i f f i') cd ]
+DrawPolyLines =: (raylib,' DrawPolyLines > n d i f f i') cd ]
 NB. void DrawPolyLinesEx(Vector2 center, int sides, float radius, float rotation, float lineThick, Color color) // Draw a polygon outline of n sides with extended parameters
-DrawPolyLinesEx =: 0 {:: (raylib,' DrawPolyLinesEx n d i f f f i') cd ]
+DrawPolyLinesEx =: (raylib,' DrawPolyLinesEx > n d i f f f i') cd ]
 NB. void DrawSplineLinear(Vector2 * points, int pointCount, float thick, Color color) // Draw spline: Linear, minimum 2 points
 NB. void DrawSplineBasis(Vector2 * points, int pointCount, float thick, Color color) // Draw spline: B-Spline, minimum 4 points
 NB. void DrawSplineCatmullRom(Vector2 * points, int pointCount, float thick, Color color) // Draw spline: Catmull-Rom, minimum 4 points
 NB. void DrawSplineBezierQuadratic(Vector2 * points, int pointCount, float thick, Color color) // Draw spline: Quadratic Bezier, minimum 3 points (1 control point): [p1, c2, p3, c4...]
 NB. void DrawSplineBezierCubic(Vector2 * points, int pointCount, float thick, Color color) // Draw spline: Cubic Bezier, minimum 4 points (2 control points): [p1, c2, c3, p4, c5, c6...]
 NB. void DrawSplineSegmentLinear(Vector2 p1, Vector2 p2, float thick, Color color) // Draw spline segment: Linear, 2 points
-DrawSplineSegmentLinear =: 0 {:: (raylib,' DrawSplineSegmentLinear n d d f i') cd ]
+DrawSplineSegmentLinear =: (raylib,' DrawSplineSegmentLinear > n d d f i') cd ]
 NB. void DrawSplineSegmentBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float thick, Color color) // Draw spline segment: B-Spline, 4 points
-DrawSplineSegmentBasis =: 0 {:: (raylib,' DrawSplineSegmentBasis n d d d d f i') cd ]
+DrawSplineSegmentBasis =: (raylib,' DrawSplineSegmentBasis > n d d d d f i') cd ]
 NB. void DrawSplineSegmentCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float thick, Color color) // Draw spline segment: Catmull-Rom, 4 points
-DrawSplineSegmentCatmullRom =: 0 {:: (raylib,' DrawSplineSegmentCatmullRom n d d d d f i') cd ]
+DrawSplineSegmentCatmullRom =: (raylib,' DrawSplineSegmentCatmullRom > n d d d d f i') cd ]
 NB. void DrawSplineSegmentBezierQuadratic(Vector2 p1, Vector2 c2, Vector2 p3, float thick, Color color) // Draw spline segment: Quadratic Bezier, 2 points, 1 control point
-DrawSplineSegmentBezierQuadratic =: 0 {:: (raylib,' DrawSplineSegmentBezierQuadratic n d d d f i') cd ]
+DrawSplineSegmentBezierQuadratic =: (raylib,' DrawSplineSegmentBezierQuadratic > n d d d f i') cd ]
 NB. void DrawSplineSegmentBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float thick, Color color) // Draw spline segment: Cubic Bezier, 2 points, 2 control points
-DrawSplineSegmentBezierCubic =: 0 {:: (raylib,' DrawSplineSegmentBezierCubic n d d d d f i') cd ]
+DrawSplineSegmentBezierCubic =: (raylib,' DrawSplineSegmentBezierCubic > n d d d d f i') cd ]
 NB. Vector2 GetSplinePointLinear(Vector2 startPos, Vector2 endPos, float t) // Get (evaluate) spline point: Linear
-GetSplinePointLinear =: 0 {:: (raylib,' GetSplinePointLinear d d d f') cd ]
+GetSplinePointLinear =: (raylib,' GetSplinePointLinear > d d d f') cd ]
 NB. Vector2 GetSplinePointBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t) // Get (evaluate) spline point: B-Spline
-GetSplinePointBasis =: 0 {:: (raylib,' GetSplinePointBasis d d d d d f') cd ]
+GetSplinePointBasis =: (raylib,' GetSplinePointBasis > d d d d d f') cd ]
 NB. Vector2 GetSplinePointCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t) // Get (evaluate) spline point: Catmull-Rom
-GetSplinePointCatmullRom =: 0 {:: (raylib,' GetSplinePointCatmullRom d d d d d f') cd ]
+GetSplinePointCatmullRom =: (raylib,' GetSplinePointCatmullRom > d d d d d f') cd ]
 NB. Vector2 GetSplinePointBezierQuad(Vector2 p1, Vector2 c2, Vector2 p3, float t) // Get (evaluate) spline point: Quadratic Bezier
-GetSplinePointBezierQuad =: 0 {:: (raylib,' GetSplinePointBezierQuad d d d d f') cd ]
+GetSplinePointBezierQuad =: (raylib,' GetSplinePointBezierQuad > d d d d f') cd ]
 NB. Vector2 GetSplinePointBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float t) // Get (evaluate) spline point: Cubic Bezier
-GetSplinePointBezierCubic =: 0 {:: (raylib,' GetSplinePointBezierCubic d d d d d f') cd ]
+GetSplinePointBezierCubic =: (raylib,' GetSplinePointBezierCubic > d d d d d f') cd ]
 NB. bool CheckCollisionRecs(Rectangle rec1, Rectangle rec2) // Check collision between two rectangles
 NB. bool CheckCollisionCircles(Vector2 center1, float radius1, Vector2 center2, float radius2) // Check collision between two circles
-CheckCollisionCircles =: 0 {:: (raylib,' CheckCollisionCircles b d f d f') cd ]
+CheckCollisionCircles =: (raylib,' CheckCollisionCircles > b d f d f') cd ]
 NB. bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec) // Check collision between circle and rectangle
 NB. bool CheckCollisionPointRec(Vector2 point, Rectangle rec) // Check if point is inside rectangle
 NB. bool CheckCollisionPointCircle(Vector2 point, Vector2 center, float radius) // Check if point is inside circle
-CheckCollisionPointCircle =: 0 {:: (raylib,' CheckCollisionPointCircle b d d f') cd ]
+CheckCollisionPointCircle =: (raylib,' CheckCollisionPointCircle > b d d f') cd ]
 NB. bool CheckCollisionPointTriangle(Vector2 point, Vector2 p1, Vector2 p2, Vector2 p3) // Check if point is inside a triangle
-CheckCollisionPointTriangle =: 0 {:: (raylib,' CheckCollisionPointTriangle b d d d d') cd ]
+CheckCollisionPointTriangle =: (raylib,' CheckCollisionPointTriangle > b d d d d') cd ]
 NB. bool CheckCollisionPointPoly(Vector2 point, Vector2 * points, int pointCount) // Check if point is within a polygon described by array of vertices
 NB. bool CheckCollisionLines(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2, Vector2 * collisionPoint) // Check the collision between two lines defined by two points each, returns collision point by reference
 NB. bool CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, int threshold) // Check if point belongs to line created between two points [p1] and [p2] with defined margin in pixels [threshold]
-CheckCollisionPointLine =: 0 {:: (raylib,' CheckCollisionPointLine b d d d i') cd ]
+CheckCollisionPointLine =: (raylib,' CheckCollisionPointLine > b d d d i') cd ]
 NB. Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2) // Get collision rectangle for two rectangles collision
 NB. Image LoadImage(const char * fileName) // Load image from file into CPU memory (RAM)
 NB. Image LoadImageRaw(const char * fileName, int width, int height, int format, int headerSize) // Load image from RAW file data
@@ -961,30 +961,30 @@ NB. void DrawTextureRec(Texture2D texture, Rectangle source, Vector2 position, C
 NB. void DrawTexturePro(Texture2D texture, Rectangle source, Rectangle dest, Vector2 origin, float rotation, Color tint) // Draw a part of a texture defined by a rectangle with 'pro' parameters
 NB. void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle dest, Vector2 origin, float rotation, Color tint) // Draws a texture (or part of it) that stretches or shrinks nicely
 NB. Color Fade(Color color, float alpha) // Get color with alpha applied, alpha goes from 0.0f to 1.0f
-Fade =: 0 {:: (raylib,' Fade i i f') cd ]
+Fade =: (raylib,' Fade > i i f') cd ]
 NB. int ColorToInt(Color color) // Get hexadecimal value for a Color
-ColorToInt =: 0 {:: (raylib,' ColorToInt i i') cd ]
+ColorToInt =: (raylib,' ColorToInt > i i') cd ]
 NB. Vector4 ColorNormalize(Color color) // Get Color normalized as float [0..1]
 NB. Color ColorFromNormalized(Vector4 normalized) // Get Color from normalized values [0..1]
 NB. Vector3 ColorToHSV(Color color) // Get HSV values for a Color, hue [0..360], saturation/value [0..1]
 NB. Color ColorFromHSV(float hue, float saturation, float value) // Get a Color from HSV values, hue [0..360], saturation/value [0..1]
-ColorFromHSV =: 0 {:: (raylib,' ColorFromHSV i f f f') cd ]
+ColorFromHSV =: (raylib,' ColorFromHSV > i f f f') cd ]
 NB. Color ColorTint(Color color, Color tint) // Get color multiplied with another color
-ColorTint =: 0 {:: (raylib,' ColorTint i i i') cd ]
+ColorTint =: (raylib,' ColorTint > i i i') cd ]
 NB. Color ColorBrightness(Color color, float factor) // Get color with brightness correction, brightness factor goes from -1.0f to 1.0f
-ColorBrightness =: 0 {:: (raylib,' ColorBrightness i i f') cd ]
+ColorBrightness =: (raylib,' ColorBrightness > i i f') cd ]
 NB. Color ColorContrast(Color color, float contrast) // Get color with contrast correction, contrast values between -1.0f and 1.0f
-ColorContrast =: 0 {:: (raylib,' ColorContrast i i f') cd ]
+ColorContrast =: (raylib,' ColorContrast > i i f') cd ]
 NB. Color ColorAlpha(Color color, float alpha) // Get color with alpha applied, alpha goes from 0.0f to 1.0f
-ColorAlpha =: 0 {:: (raylib,' ColorAlpha i i f') cd ]
+ColorAlpha =: (raylib,' ColorAlpha > i i f') cd ]
 NB. Color ColorAlphaBlend(Color dst, Color src, Color tint) // Get src alpha-blended into dst color with tint
-ColorAlphaBlend =: 0 {:: (raylib,' ColorAlphaBlend i i i i') cd ]
+ColorAlphaBlend =: (raylib,' ColorAlphaBlend > i i i i') cd ]
 NB. Color GetColor(unsigned int hexValue) // Get Color structure from hexadecimal value
-GetColor =: 0 {:: (raylib,' GetColor i i') cd ]
+GetColor =: (raylib,' GetColor > i i') cd ]
 NB. Color GetPixelColor(void * srcPtr, int format) // Get Color from a source pixel pointer of certain format
 NB. void SetPixelColor(void * dstPtr, Color color, int format) // Set color formatted into destination pixel pointer
 NB. int GetPixelDataSize(int width, int height, int format) // Get pixel data size in bytes for certain format
-GetPixelDataSize =: 0 {:: (raylib,' GetPixelDataSize i i i i') cd ]
+GetPixelDataSize =: (raylib,' GetPixelDataSize > i i i i') cd ]
 NB. Font GetFontDefault() // Get the default Font
 NB. Font LoadFont(const char * fileName) // Load font from file into GPU memory (VRAM)
 NB. Font LoadFontEx(const char * fileName, int fontSize, int * codepoints, int codepointCount) // Load font from file with extended parameters, use NULL for codepoints and 0 for codepointCount to load the default character setFont
@@ -997,17 +997,17 @@ NB. void UnloadFontData(GlyphInfo * glyphs, int glyphCount) // Unload font chars
 NB. void UnloadFont(Font font) // Unload font from GPU memory (VRAM)
 NB. bool ExportFontAsCode(Font font, const char * fileName) // Export font as code file, returns true on success
 NB. void DrawFPS(int posX, int posY) // Draw current FPS
-DrawFPS =: 0 {:: (raylib,' DrawFPS n i i') cd ]
+DrawFPS =: (raylib,' DrawFPS > n i i') cd ]
 NB. void DrawText(const char * text, int posX, int posY, int fontSize, Color color) // Draw text (using default font)
-DrawText =: 0 {:: (raylib,' DrawText n *c i i i i') cd ]
+DrawText =: (raylib,' DrawText > n *c i i i i') cd ]
 NB. void DrawTextEx(Font font, const char * text, Vector2 position, float fontSize, float spacing, Color tint) // Draw text using font and additional parameters
 NB. void DrawTextPro(Font font, const char * text, Vector2 position, Vector2 origin, float rotation, float fontSize, float spacing, Color tint) // Draw text using Font and pro parameters (rotation)
 NB. void DrawTextCodepoint(Font font, int codepoint, Vector2 position, float fontSize, Color tint) // Draw one character (codepoint)
 NB. void DrawTextCodepoints(Font font, const int * codepoints, int codepointCount, Vector2 position, float fontSize, float spacing, Color tint) // Draw multiple character (codepoint)
 NB. void SetTextLineSpacing(int spacing) // Set vertical line spacing when drawing with line-breaks
-SetTextLineSpacing =: 0 {:: (raylib,' SetTextLineSpacing n i') cd ]
+SetTextLineSpacing =: (raylib,' SetTextLineSpacing > n i') cd ]
 NB. int MeasureText(const char * text, int fontSize) // Measure string width for default font
-MeasureText =: 0 {:: (raylib,' MeasureText i *c i') cd ]
+MeasureText =: (raylib,' MeasureText > i *c i') cd ]
 NB. Vector2 MeasureTextEx(Font font, const char * text, float fontSize, float spacing) // Measure string size for Font
 NB. int GetGlyphIndex(Font font, int codepoint) // Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found
 NB. GlyphInfo GetGlyphInfo(Font font, int codepoint) // Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found
@@ -1015,27 +1015,27 @@ NB. Rectangle GetGlyphAtlasRec(Font font, int codepoint) // Get glyph rectangle 
 NB. char * LoadUTF8(const int * codepoints, int length) // Load UTF-8 text encoded from codepoints array
 LoadUTF8 =: 0 {:: (raylib,' LoadUTF8 *c *i i') cd ]
 NB. void UnloadUTF8(char * text) // Unload UTF-8 text encoded from codepoints array
-UnloadUTF8 =: 0 {:: (raylib,' UnloadUTF8 n *c') cd ]
+UnloadUTF8 =: (raylib,' UnloadUTF8 > n *c') cd ]
 NB. int * LoadCodepoints(const char * text, int * count) // Load all codepoints from a UTF-8 text string, codepoints count returned by parameter
 LoadCodepoints =: 0 {:: (raylib,' LoadCodepoints *i *c *i') cd ]
 NB. void UnloadCodepoints(int * codepoints) // Unload codepoints data from memory
-UnloadCodepoints =: 0 {:: (raylib,' UnloadCodepoints n *i') cd ]
+UnloadCodepoints =: (raylib,' UnloadCodepoints > n *i') cd ]
 NB. int GetCodepointCount(const char * text) // Get total number of codepoints in a UTF-8 encoded string
-GetCodepointCount =: 0 {:: (raylib,' GetCodepointCount i *c') cd ]
+GetCodepointCount =: (raylib,' GetCodepointCount > i *c') cd ]
 NB. int GetCodepoint(const char * text, int * codepointSize) // Get next codepoint in a UTF-8 encoded string, 0x3f('?') is returned on failure
-GetCodepoint =: 0 {:: (raylib,' GetCodepoint i *c *i') cd ]
+GetCodepoint =: (raylib,' GetCodepoint > i *c *i') cd ]
 NB. int GetCodepointNext(const char * text, int * codepointSize) // Get next codepoint in a UTF-8 encoded string, 0x3f('?') is returned on failure
-GetCodepointNext =: 0 {:: (raylib,' GetCodepointNext i *c *i') cd ]
+GetCodepointNext =: (raylib,' GetCodepointNext > i *c *i') cd ]
 NB. int GetCodepointPrevious(const char * text, int * codepointSize) // Get previous codepoint in a UTF-8 encoded string, 0x3f('?') is returned on failure
-GetCodepointPrevious =: 0 {:: (raylib,' GetCodepointPrevious i *c *i') cd ]
+GetCodepointPrevious =: (raylib,' GetCodepointPrevious > i *c *i') cd ]
 NB. const char * CodepointToUTF8(int codepoint, int * utf8Size) // Encode one codepoint into UTF-8 byte array (array length returned as parameter)
 CodepointToUTF8 =: 0 {:: (raylib,' CodepointToUTF8 *c i *i') cd ]
 NB. int TextCopy(char * dst, const char * src) // Copy one string to another, returns bytes copied
-TextCopy =: 0 {:: (raylib,' TextCopy i *c *c') cd ]
+TextCopy =: (raylib,' TextCopy > i *c *c') cd ]
 NB. bool TextIsEqual(const char * text1, const char * text2) // Check if two text string are equal
-TextIsEqual =: 0 {:: (raylib,' TextIsEqual b *c *c') cd ]
+TextIsEqual =: (raylib,' TextIsEqual > b *c *c') cd ]
 NB. unsigned int TextLength(const char * text) // Get text length, checks for '\0' ending
-TextLength =: 0 {:: (raylib,' TextLength i *c') cd ]
+TextLength =: (raylib,' TextLength > i *c') cd ]
 NB. const char * TextFormat(const char * text, ... args) // Text formatting with variables (sprintf() style)
 NB. const char * TextSubtext(const char * text, int position, int length) // Get a piece of a text string
 TextSubtext =: 0 {:: (raylib,' TextSubtext *c *c i i') cd ]
@@ -1046,9 +1046,9 @@ TextInsert =: 0 {:: (raylib,' TextInsert *c *c *c i') cd ]
 NB. const char * TextJoin(const char ** textList, int count, const char * delimiter) // Join text strings with delimiter
 NB. const char ** TextSplit(const char * text, char delimiter, int * count) // Split text into multiple strings
 NB. void TextAppend(char * text, const char * append, int * position) // Append text at specific position and move cursor!
-TextAppend =: 0 {:: (raylib,' TextAppend n *c *c *i') cd ]
+TextAppend =: (raylib,' TextAppend > n *c *c *i') cd ]
 NB. int TextFindIndex(const char * text, const char * find) // Find first text occurrence within a string
-TextFindIndex =: 0 {:: (raylib,' TextFindIndex i *c *c') cd ]
+TextFindIndex =: (raylib,' TextFindIndex > i *c *c') cd ]
 NB. const char * TextToUpper(const char * text) // Get upper case version of provided string
 TextToUpper =: 0 {:: (raylib,' TextToUpper *c *c') cd ]
 NB. const char * TextToLower(const char * text) // Get lower case version of provided string
@@ -1056,9 +1056,9 @@ TextToLower =: 0 {:: (raylib,' TextToLower *c *c') cd ]
 NB. const char * TextToPascal(const char * text) // Get Pascal case notation version of provided string
 TextToPascal =: 0 {:: (raylib,' TextToPascal *c *c') cd ]
 NB. int TextToInteger(const char * text) // Get integer value from text (negative values not supported)
-TextToInteger =: 0 {:: (raylib,' TextToInteger i *c') cd ]
+TextToInteger =: (raylib,' TextToInteger > i *c') cd ]
 NB. float TextToFloat(const char * text) // Get float value from text (negative values not supported)
-TextToFloat =: 0 {:: (raylib,' TextToFloat f *c') cd ]
+TextToFloat =: (raylib,' TextToFloat > f *c') cd ]
 NB. void DrawLine3D(Vector3 startPos, Vector3 endPos, Color color) // Draw a line in 3D world space
 NB. void DrawPoint3D(Vector3 position, Color color) // Draw a point in 3D space, actually a small line
 NB. void DrawCircle3D(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color) // Draw a circle in 3D world space
@@ -1080,7 +1080,7 @@ NB. void DrawCapsuleWires(Vector3 startPos, Vector3 endPos, float radius, int sl
 NB. void DrawPlane(Vector3 centerPos, Vector2 size, Color color) // Draw a plane XZ
 NB. void DrawRay(Ray ray, Color color) // Draw a ray line
 NB. void DrawGrid(int slices, float spacing) // Draw a grid (centered at (0, 0, 0))
-DrawGrid =: 0 {:: (raylib,' DrawGrid n i f') cd ]
+DrawGrid =: (raylib,' DrawGrid > n i f') cd ]
 NB. Model LoadModel(const char * fileName) // Load model from files (meshes and materials)
 NB. Model LoadModelFromMesh(Mesh mesh) // Load model from generated mesh (default material)
 NB. bool IsModelReady(Model model) // Check if a model is ready
@@ -1134,15 +1134,15 @@ NB. RayCollision GetRayCollisionMesh(Ray ray, Mesh mesh, Matrix transform) // Ge
 NB. RayCollision GetRayCollisionTriangle(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3) // Get collision info between ray and triangle
 NB. RayCollision GetRayCollisionQuad(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4) // Get collision info between ray and quad
 NB. void InitAudioDevice() // Initialize audio device and context
-InitAudioDevice =: 0 {:: (raylib,' InitAudioDevice n') cd ]
+InitAudioDevice =: (raylib,' InitAudioDevice > n') cd ]
 NB. void CloseAudioDevice() // Close the audio device and context
-CloseAudioDevice =: 0 {:: (raylib,' CloseAudioDevice n') cd ]
+CloseAudioDevice =: (raylib,' CloseAudioDevice > n') cd ]
 NB. bool IsAudioDeviceReady() // Check if audio device has been initialized successfully
-IsAudioDeviceReady =: 0 {:: (raylib,' IsAudioDeviceReady b') cd ]
+IsAudioDeviceReady =: (raylib,' IsAudioDeviceReady > b') cd ]
 NB. void SetMasterVolume(float volume) // Set master volume (listener)
-SetMasterVolume =: 0 {:: (raylib,' SetMasterVolume n f') cd ]
+SetMasterVolume =: (raylib,' SetMasterVolume > n f') cd ]
 NB. float GetMasterVolume() // Get master volume (listener)
-GetMasterVolume =: 0 {:: (raylib,' GetMasterVolume f') cd ]
+GetMasterVolume =: (raylib,' GetMasterVolume > f') cd ]
 NB. Wave LoadWave(const char * fileName) // Load wave data from file
 NB. Wave LoadWaveFromMemory(const char * fileType, const unsigned char * fileData, int dataSize) // Load wave from memory buffer, fileType refers to extension: i.e. '.wav'
 NB. bool IsWaveReady(Wave wave) // Checks if wave data is ready
@@ -1199,7 +1199,7 @@ NB. void SetAudioStreamVolume(AudioStream stream, float volume) // Set volume fo
 NB. void SetAudioStreamPitch(AudioStream stream, float pitch) // Set pitch for audio stream (1.0 is base level)
 NB. void SetAudioStreamPan(AudioStream stream, float pan) // Set pan for audio stream (0.5 is centered)
 NB. void SetAudioStreamBufferSizeDefault(int size) // Default size for new audio streams
-SetAudioStreamBufferSizeDefault =: 0 {:: (raylib,' SetAudioStreamBufferSizeDefault n i') cd ]
+SetAudioStreamBufferSizeDefault =: (raylib,' SetAudioStreamBufferSizeDefault > n i') cd ]
 NB. void SetAudioStreamCallback(AudioStream stream, AudioCallback callback) // Audio thread callback to request new data
 NB. void AttachAudioStreamProcessor(AudioStream stream, AudioCallback processor) // Attach audio stream processor to stream, receives the samples as <float>s
 NB. void DetachAudioStreamProcessor(AudioStream stream, AudioCallback processor) // Detach audio stream processor from stream

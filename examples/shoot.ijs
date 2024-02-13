@@ -59,7 +59,7 @@ NewBall =: {{
 }}
 
 DrawBalls =: {{
-    DrawCircle"1 ((posK,radK) <@<.@{"1 y) ,. <@ColorFromHue"1 y
+    DrawCircle ((posK,radK) <@<.@{"1 y) ,. <@ColorFromHue"1 y
 }}
 
 Main =: {{
