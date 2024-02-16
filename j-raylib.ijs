@@ -8,13 +8,13 @@ raylib =. IFUNIX {:: winlib;nixlib
 Color =: {{
     'r g b a' =. >  y
     256 #. |. y
-}}
+}}"1
 Color_J  =: |.@((4 # 256) #: ]) :. Color
 
 Vector2  =: {{
     'vx vy' =. > y
     {. _2 fc 1 fc vx,vy
-}}
+}}"1
 Vector2_J=:    (_1 fc 2 fc ])   :. Vector2
 
 cocurrent 'rlcolor'
