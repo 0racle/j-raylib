@@ -17,7 +17,7 @@ Then call `Run` where
 [1]: https://dancek.github.io/bqn-80/
 )
 
-'WIDTH HEIGHT' =: 800 600
+'WIDTH HEIGHT' =: 500 500
 
 COLORS =: Color@".;._2 {{)n
  26  28  44 255
@@ -38,16 +38,25 @@ COLORS =: Color@".;._2 {{)n
  51  60  87 255
 }}
 
+NB. Rainbow colors
+NB. COLORS =: ColorFromHSV 1,.~ 1,.~ (,. 10 * i. 36)
+
 Init =: {{
     SetTraceLogLevel LOG_ERROR
     InitWindow WIDTH;HEIGHT;'raymat'
-    SetTargetFPS 15
+    SetTargetFPS 60
 }}
 
-DrawMat =: {{
-    q =. |. >. (HEIGHT,WIDTH) % $ y 
+Map =: {{
+    ({. n) + (%/ -/ n,.m) <.@* (y - {. m)
+}}
+
+DrawMat =: {{)d
+    'min max' =. (<./ , >./), y
+    q =. |. >. (HEIGHT,WIDTH) % $ y
     a =. <"0 q,"1~ q *"1 |."1 (#: i.@(*/)) $ y
-    DrawRectangle a ,. <"0 x {~ (<: # x) AND , y
+    c =. <"0 x {~ (min,max) Map (0, <: # x) , y
+    DrawRectangle a ,. c
 }}
 
 Run =: {{
@@ -56,7 +65,12 @@ Run =: {{
     while. -. WindowShouldClose '' do.
         fc =. >: fc
         BeginDrawing ''
-        x DrawMat y =. fc u y
+        try.
+            x DrawMat y =. fc u y
+        catch.
+            echo dberm ''
+            break.
+        end.
         EndDrawing ''
     end.
     CloseWindow ''
@@ -64,11 +78,19 @@ Run =: {{
 
 NB. Example 1
 a =. |. <. {.@*. (_1 + 0.4 * ])@j./~ i. 40
-Step =: (# COLORS) | <:@]
-COLORS Step Run a
+Tick =: {{ (# COLORS) | <:^:(0 = 4 | x) y }}
+COLORS Tick Run a
 
-NB. Example 2: Conway's Game of Life
-g =. ? 75 100 $ 2
+NB. Example 2
+'pi tau' =: o. 1 2
+atan =: 12 o. j.
+a =. ((+&.*: -"2 atan) |:) (# ,:@(10 * <:@(2 * ] %~ i.))) 100
+Tick =: {{ <. pi -~ tau | (x % 10) - m }}
+COLORS (a Tick) Run ''
+
+NB. Conway's Game of Life
+g =. ? 100 100 $ 2
 c =. <: (#: i.@(*/)) 3 3
-Iter =: c {{ +./ (1 ,: y) *. (3 4) =/ +/ m |. y }}
-(BLACK,ORANGE) Iter@] Run g
+Tick =: c {{ +./ (1 ,: y) *. (3 4) =/ +/ m |. y }}
+NB. Force monadic call to ignore x
+(BLACK,GOLD) Tick@] Run g 
